@@ -1,3 +1,6 @@
+// import 'dart:js';
+
+// import 'package:errandboy/settings/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class OnboardModel {
@@ -23,14 +26,14 @@ List<OnboardModel> screens = <OnboardModel>[
     desc:
         "Sebuah metode belajar yang terbuktiampuh dalam meningkatkan produktifitas belajar, Learning by Doing",
     bg: Colors.white,
-    button: Color(0xFF4756DF),
+    button: const Color(0xFF4756DF),
   ),
   OnboardModel(
     img: 'assets/images/img-2.png',
     text: "Dapatkan Kemudahan Akses Kapanpun dan Dimanapun",
     desc:
         "Tidak peduli dimanapun kamu, semua kursus yang telah kamu ikuti bias kamu akses sepenuhnya",
-    bg: Color(0xFF4756DF),
+    bg: const Color(0xFF4756DF),
     button: Colors.white,
   ),
   OnboardModel(
@@ -39,6 +42,6 @@ List<OnboardModel> screens = <OnboardModel>[
     desc:
         "Tersedia fitur Kolaborasi dengan tujuan untuk mengasah skill lebih dalam karena bias belajar bersama",
     bg: Colors.white,
-    button: Color(0xFF4756DF),
+    button: const Color(0xFF4756DF),
   ),
 ];

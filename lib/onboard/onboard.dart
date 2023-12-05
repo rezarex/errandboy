@@ -1,5 +1,6 @@
 import 'package:errandboy/home.dart';
 import 'package:errandboy/onboard/onboard_model.dart';
+import 'package:errandboy/settings/app_localizations.dart';
 import 'package:errandboy/settings/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,10 +46,12 @@ class _OnboardState extends State<Onboard> {
             onPressed: () async {
               await _storeOnboardInfo();
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => Home()));
+                  context, MaterialPageRoute(builder: (context) => const Home()));
             },
             child: Text(
-              "Skip",
+              AppLocalizations.of(context)!
+                  .translate('onboard_text_1')
+                  .toString(),
               style: TextStyle(
                 color: currentIndex % 2 == 0 ? kblack : kwhite,
               ),
@@ -61,7 +64,7 @@ class _OnboardState extends State<Onboard> {
         child: PageView.builder(
             itemCount: screens.length,
             controller: _pageController,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (int index) {
               setState(() {
                 currentIndex = index;
@@ -73,7 +76,7 @@ class _OnboardState extends State<Onboard> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(screens[index].img),
-                  Container(
+                  SizedBox(
                     height: 10.0,
                     child: ListView.builder(
                         itemCount: screens.length,
@@ -121,7 +124,7 @@ class _OnboardState extends State<Onboard> {
                       if (index == screens.length - 1) {
                         await _storeOnboardInfo();
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => Home()));
+                            MaterialPageRoute(builder: (context) => const Home()));
                       }
                       _pageController.nextPage(
                           duration: const Duration(microseconds: 300),
